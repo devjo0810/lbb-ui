@@ -9,7 +9,7 @@
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
-  "author": "Devjo0810",
+  "author": "devjo0810",
   "license": "MIT",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.5",

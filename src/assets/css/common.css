@@ -1,0 +1,129 @@
+/************ variables start ************/
+:root {
+  --main-bg-color: #E6E6E6;
+  --border-color: #020202;
+}
+/************ variables end ************/
+
+/************ reset start ************/
+* {
+  box-sizing: border-box;
+}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/************ reset end ************/
+/************ common class start ************/
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex.start { justify-content: start; }
+.flex.end { justify-content: end; }
+.flex.column { flex-direction: column; }
+.flex.between { justify-content: space-between; }
+.flex.align_start { align-items: start; }
+.w30p { width: 30%; }
+.w70p { width: 70%; }
+.w100p { width: 100%; }
+.h100p { height: 100%; }
+.pr10 { padding-right: 10px; }
+/************ common class end ************/
+/************ app start ************/
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: var(--main-bg-color);
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+#lbb_app {
+  width: 100%;
+  height: 100%;
+  padding: 3vh 3vw;
+}
+#region_select_container {
+  border: 1px solid var(--border-color);
+}
+#region_select_container .region_select_header,
+#region_select_container .region_select_body_item {
+  display: flex;
+  width: 100%;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+#region_select_container .region_select_header>div,
+#region_select_container .region_select_body_item>div {
+  width: 50%;
+  height: 100%;
+  text-align: center;
+  padding: 5px;
+  border-bottom: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+}
+#region_select_container .region_select_header>div:last-child,
+#region_select_container .region_select_body_item>div:last-child {
+  border-right: none;
+}
+.display_option_item { width: 100%; margin-bottom: 5px; } 
+.display_option_item p,
+.display_option_item select { display: inline-block; min-width: 60px; } 
+#button_container button {
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+}
+#button_container button:last-child {
+  margin-bottom: 0px;
+}
+/************ app end ************/
