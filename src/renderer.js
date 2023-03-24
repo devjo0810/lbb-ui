@@ -1,3 +1,8 @@
+/**
+ * renderer.js
+ * 각 html에 기본 세팅할 js 설정
+ * ex) ipc통신용, 공통 함수 등
+ */
 window.addEventListener('DOMContentLoaded', () => {
 
   const KEY_CODE = {

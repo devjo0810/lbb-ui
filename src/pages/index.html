@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <link rel="stylesheet" href="../assets/css/common.css">
+    <title>LBB</title>
+  </head>
+  <body>
+    <div id="lbb_app">
+      <div class="flex start h100p">
+        <div id="region_layout" class="w70p h100p pr30">
+          <h3>전광판 표시 지사 선택</h3>
+          <div id="region_select_container">
+            <div class="region_select_header">
+              <div class="flex"><span>선택</span></div>
+              <div class="flex"><span>지사명</span></div>
+            </div>
+            <div id="region_select_body" class="region_select_body"></div>
+          </div>
+        </div>
+        <div id="option_layout" class="w30p h100p flex column between align_start">
+          <div id="display_option_container">
+            <h3>화면지속시간(초)</h3>
+            <div class="display_option_item">
+              <p>통합화면 : </p>
+              <select name="displayCount" id="display_count"></select>
+            </div>
+            <div class="display_option_item">
+              <p>세부화면 : </p>
+              <select name="displayDetail" id="display_detail"></select>
+            </div>
+          </div>
+          <div id="button_container">
+            <button id="all_select">전체선택</button>
+            <button id="all_select_cancel">전체선택 취소</button>
+            <button id="billboard_launch">전광판실행</button>
+            <button id="quit">종료</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../renderer.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 const config = {
   SERVER: {
-    INDEX_PATH: "/src/index.html"
+    INDEX_PATH: "/src/pages/index.html"
   },
   WINDOW: {
     WIDTH: 1200,

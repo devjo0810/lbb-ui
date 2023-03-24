@@ -33,12 +33,17 @@ function toggleDevToolsHandler () {
   win.webContents.toggleDevTools()
 }
 
+function quitHandler () {
+  app.quit()
+}
+
 app.whenReady().then(() => {
   win = createWindow()
 
   // ipcMain event handler mapping
   ipcMain.handle('ping', pingHandler)
   ipcMain.handle('toggleDevTools', toggleDevToolsHandler)
+  ipcMain.handle('quit', quitHandler)
 
   app.on('activate', function () {
     // macOS 처리용
