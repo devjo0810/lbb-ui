@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 const { SERVER, WINDOW } = require('./config')
+
 let win
 
 function createWindow () {
@@ -25,6 +26,12 @@ function createWindow () {
   return browserWindow
 }
 
+const boardState = {
+  totalDuration: 0,
+  detailDuration: 0,
+  regionItems: []
+}
+
 function pingHandler () {
   return 'pong'
 }
@@ -37,6 +44,14 @@ function quitHandler () {
   app.quit()
 }
 
+function setBoardStateHandler (_, key, value) {
+  boardState[key] = value
+}
+
+function getBoardStateHandler () {
+  return boardState
+}
+
 app.whenReady().then(() => {
   win = createWindow()
 
@@ -44,6 +59,8 @@ app.whenReady().then(() => {
   ipcMain.handle('ping', pingHandler)
   ipcMain.handle('toggleDevTools', toggleDevToolsHandler)
   ipcMain.handle('quit', quitHandler)
+  ipcMain.handle('setBoardState', setBoardStateHandler)
+  ipcMain.handle('getBoardState', getBoardStateHandler)
 
   app.on('activate', function () {
     // macOS 처리용

@@ -5,13 +5,16 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <link rel="stylesheet" href="../assets/css/common.css">
-    <title>LBB</title>
+    <title>전광판</title>
   </head>
   <body>
-    Board
+    <div id="lbb_board_app">
+      <div id="total_display">TOTAL</div>
+      <div>DETAIL</div>
+    </div>
 
     <script src="../assets/js/jquery.js"></script>
-    <script src="../renderer.js"></script>
+    <!-- <script src="../renderer.js"></script> -->
     <script src="./board.js"></script>
   </body>
 </html>
