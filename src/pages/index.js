@@ -1,20 +1,23 @@
 window.addEventListener('DOMContentLoaded', () => {
   const CONFIG = {
     OPTION_DEFAULT_VALUE: 1,
-    DISPLAY_COUNT: 5,           // 통합화면에 표시될 숫자 갯수
-    DISPLAY_COUNT_DEFAULT: 3,   // 통합화면에 기본 적용할 값
-    DISPLAY_DETAIL: 10,         // 세부화면에 표시될 숫자 갯수
-    DISPLAY_DETALI_DEFAULT: 10, // 세부화면에 기본 적용할 값
+    TOTAL_DURATION: 5,          // 통합화면에 표시될 숫자 갯수
+    TOTAL_DURATION_DEFAULT: 3,  // 통합화면에 기본 적용할 값
+    DETAIL_DURATION: 10,        // 세부화면에 표시될 숫자 갯수
+    DETAIL_DURATION_DEFAULT: 10,// 세부화면에 기본 적용할 값
     REGION_DISPLAY: 'name',     // 지사명 표시 키값
     REGION_VALUE: 'name',       // 지사 고유 key값
+    BOARD_WINDOW_NAME: 'board', // 전광판 window명
   }
 
-  // region checkbox body element
+  let boardWin;
+
+  // region checkbox body element`
   const regionSelectBody = $('#region_select_body')
 
   // select elements
-  const displayCountSel = $('#display_count')
-  const displayDetailSel = $('#display_detail')
+  const totalDurationSel = $('#total_duration')
+  const detailDurationSel = $('#detail_duration')
 
   // button elements
   const allSelectBtn = $('#all_select')
@@ -45,6 +48,11 @@ window.addEventListener('DOMContentLoaded', () => {
     return items
   }
 
+  const openBoardWindow = (boardWindowName = CONFIG.BOARD_WINDOW_NAME) => {
+    const { width, height } = screen
+    return window.open('./board.html', boardWindowName, `width=${width}, height=${height}, fullscreen=yes`)
+  }
+
   // 전체선택 버튼 클릭
   $(allSelectBtn).on('click', () => {
     console.log('allSelectBtn click')
@@ -60,12 +68,14 @@ window.addEventListener('DOMContentLoaded', () => {
   // 전광판 실행 버튼 클릭
   $(billboardLaunchBtn).on('click', () => {
     const checkedItems = $('.region_checkbox:checked')
-    const cnt = $(displayCountSel).val()
-    const detailCnt = $(displayDetailSel).val()
+    const totalDuration = $(totalDurationSel).val()
+    const detailDuration = $(detailDurationSel).val()
+
+    boardWin = openBoardWindow()
 
     console.log('체크항목 :', checkedItems)
-    console.log('통합화면 :', cnt)
-    console.log('세부화면 :', detailCnt)
+    console.log('통합화면 :', totalDuration)
+    console.log('세부화면 :', detailDuration)
   })
 
   // 종료 버튼 클릭
@@ -87,7 +97,7 @@ window.addEventListener('DOMContentLoaded', () => {
     { name: '시흥' },
     { name: '수원' },
     { name: '평택' },
-    { name: '천안' },
+    { name: '천안시' },
     { name: '아산' },
     { name: '광주' },
     { name: '포항' },
@@ -102,7 +112,7 @@ window.addEventListener('DOMContentLoaded', () => {
   ]
 
   $(regionSelectBody).append(getRegionBodyItems(sampleBodyItems))
-  $(displayCountSel).append(getOptionsByNum(CONFIG.DISPLAY_COUNT, CONFIG.DISPLAY_COUNT_DEFAULT))
-  $(displayDetailSel).append(getOptionsByNum(CONFIG.DISPLAY_DETAIL, CONFIG.DISPLAY_DETALI_DEFAULT))
+  $(totalDurationSel).append(getOptionsByNum(CONFIG.TOTAL_DURATION, CONFIG.TOTAL_DURATION_DEFAULT))
+  $(detailDurationSel).append(getOptionsByNum(CONFIG.DETAIL_DURATION, CONFIG.DETAIL_DURATION_DEFAULT))
 
 })
